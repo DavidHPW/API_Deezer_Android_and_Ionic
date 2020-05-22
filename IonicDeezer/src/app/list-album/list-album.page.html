@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Liste des albums</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true">
+
+  <!-- ngFor pour récupérer la liste des albums dans des ion-cards pour renvoyer la cover et le nom de l'album, 
+  le (click) permet d'utiliser la méthode onClickAlbum lors d'un clique sur l'ion-card -->
+  <ion-card *ngFor="let album of listAlbum;" (click)="onClickAlbum(album)">
+    <ul><img src="{{album.cover_medium}}"  alt="{{album.title}}"></ul>
+    <ul><b>{{album.title}}</b></ul>
+  </ion-card>
+
+</ion-content>

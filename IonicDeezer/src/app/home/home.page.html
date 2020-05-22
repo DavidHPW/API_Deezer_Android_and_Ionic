@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Recherche
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Recherche</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-toolbar>
+  <ion-searchbar animated type="text" placeholder="Artiste" (keyup.enter)="onSearchArtist($event)"></ion-searchbar>
+  </ion-toolbar>  
+
+ <!-- ngFor pour récupérer la liste des artistes dans des ion-cards pour renvoyer la cover et le nom de l'artist, 
+  le (click) permet d'utiliser la méthode onClickArtist lors d'un clique sur l'ion-card -->
+  <ion-card *ngFor="let artist of listArtist;" (click)="onClickArtist(artist)">
+    <ul><img src={{artist.picture_medium}}></ul>
+    <ul><b>{{artist.name}}</b></ul>
+  </ion-card>
+
+</ion-content>
